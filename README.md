@@ -1,6 +1,6 @@
 # 🛠️ Instalador DEV — FASE 1 + FASE 2
 
-Este repositorio automatiza la configuración de un entorno de desarrollo en una máquina Linux limpia (por ejemplo, una VM con Ubuntu Desktop).
+Este repositorio automatiza la configuración de un entorno de desarrollo en una máquina Linux limpia (como una VM con Ubuntu).
 
 ---
 
@@ -32,41 +32,42 @@ curl -s https://raw.githubusercontent.com/AJCG13121981/gitconfig/main/fase1_setu
 1. Asegúrate de tener una cuenta de GitHub creada.  
    📌 Si no la tienes, regístrate en: [https://github.com/join](https://github.com/join)
 
-2. Descarga y ejecuta el script de generación de clave SSH:
+2. Ejecuta el script para generar tu clave SSH:
 
 ```bash
 curl -s https://raw.githubusercontent.com/AJCG13121981/gitconfig/main/fase2_ssh.sh | bash
 ```
 
-📋 El script generará tu clave SSH y te la mostrará por pantalla.
+📋 El script:
 
-🔗 Ve a: [https://github.com/settings/keys](https://github.com/settings/keys)  
-Clica en "New SSH Key", pega la clave y guárdala.
+- Te pedirá tu email.
+- Generará tu clave SSH si no existe.
+- Mostrará la clave pública por pantalla.
+
+🔗 Copia esa clave y pégala en [https://github.com/settings/keys](https://github.com/settings/keys)
+
+Cuando termines, pulsa ENTER para verificar la conexión.
 
 ---
 
 ### Parte 2️⃣: Clonar el repo y configurar Git
 
-Una vez tengas configurada la clave SSH y verificada la conexión:
-
-1. Clona este repositorio con:
+Una vez confirmada la conexión con GitHub:
 
 ```bash
 git clone git@github.com:AJCG13121981/gitconfig.git
 cd gitconfig
-```
-
-2. Da permisos y ejecuta el configurador:
-
-```bash
 chmod +x fase2_configura_git.sh
 ./fase2_configura_git.sh
 ```
 
-El script te pedirá tu nombre y correo para Git, creará un repositorio local y hará el primer commit.
+📦 Esto:
+
+- Te pedirá tu nombre y correo para Git.
+- Creará la carpeta `~/mi_proyecto`.
+- Hará el primer commit local.
 
 ---
 
-✅ ¡Listo! Ya tienes tu entorno DEV inicializado, Git configurado y conectado con GitHub.
-
-Próxima FASE: subir el proyecto remoto o trabajar en proyectos nuevos sincronizados.
+✅ ¡Entorno DEV conectado y listo!  
+📌 Próxima fase: flujo completo GitHub → trabajo → push/pull automático.
