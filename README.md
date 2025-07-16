@@ -1,85 +1,44 @@
-# 🔧 Configurador automático de Git + GitHub
+# 🚀 Instalador automático de Git + GitHub para Linux
 
-Este repositorio contiene dos scripts que te permiten configurar Git y enlazarlo con GitHub desde cualquier equipo Linux, paso a paso y de forma automatizada.
-
----
-
-## 📁 Estructura del repositorio
-
-```
-gitconfig/
-├── fase1_setup.sh         # Paso 1: actualiza el sistema e instala Git
-├── configura_git.sh       # Paso 2: configuración personalizada + conexión GitHub
-└── README.md              # Instrucciones paso a paso
-```
+Este repositorio contiene un instalador guiado que configura Git, genera clave SSH, conecta con GitHub y deja tu entorno listo para clonar, crear y trabajar con repositorios.
 
 ---
 
-## 🚀 ¿Cómo se usa?
-
-Sigue estos pasos **en orden** para que todo funcione correctamente:
-
----
-
-### 1️⃣ Clonar este repositorio en tu dispositivo
-
-Abre la terminal y ejecuta:
+## 🟢 USO RÁPIDO: SOLO COPIA Y PEGA
 
 ```bash
-git clone git@github.com:AJCG13121981/gitconfig.git
+curl -s https://raw.githubusercontent.com/AJCG13121981/gitconfig/main/instalador_git.sh | bash
+```
+
+⚠️ Ejecuta este único comando desde cualquier equipo Linux (Ubuntu/Debian) y sigue las instrucciones.
+
+---
+
+## 📁 Qué hace automáticamente
+
+- Comprueba si tienes clave SSH
+- La genera y te muestra dónde pegarla en GitHub
+- Verifica la conexión con GitHub
+- Clona este mismo repositorio
+- Actualiza el sistema e instala Git
+- Te guía para continuar después del reinicio
+
+---
+
+## 🔁 Tras el reinicio...
+
+Cuando el sistema se reinicie, entra de nuevo a la carpeta clonada y ejecuta:
+
+```bash
 cd gitconfig
-```
-
----
-
-### 2️⃣ Ejecutar el primer script (actualiza e instala Git)
-
-Este script actualiza el sistema e instala Git automáticamente:
-
-```bash
-chmod +x fase1_setup.sh
-./fase1_setup.sh
-```
-
-Cuando termine, el propio script te dirá que **reinicies el equipo**.  
-Esto es importante para aplicar correctamente todos los cambios del sistema.
-
----
-
-### 🔁 Reinicia tu sistema antes de continuar
-
-Una vez reiniciado...
-
----
-
-### 3️⃣ Ejecutar el segundo script (configura Git + GitHub)
-
-Este script te pedirá los siguientes datos:
-- 📝 Tu nombre completo (para Git)
-- 📧 Tu correo electrónico (para Git)
-- 🔗 La URL SSH de tu repositorio GitHub (ej: `git@github.com:usuario/mi-repo.git`)
-
-Y después:
-- Generará tu clave SSH si no existe
-- Te mostrará la clave para que la copies en GitHub
-- Verificará la conexión SSH con GitHub
-- Te preguntará si quieres clonar un repo o crear uno nuevo
-
-Ejecuta así:
-
-```bash
-chmod +x configura_git.sh
 ./configura_git.sh
 ```
 
----
-
-## 💡 Requisitos
-
-- Ubuntu/Debian o derivado (Linux)
-- Permisos de superusuario (`sudo`)
-- Conexión a internet
-- Una cuenta en GitHub
+Este script pedirá:
+- Tu nombre
+- Tu email
+- La URL SSH del repo que quieras usar
+Y te configurará todo el entorno Git.
 
 ---
 
