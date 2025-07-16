@@ -1,47 +1,60 @@
 #!/bin/bash
 
-### === VARIABLES A PERSONALIZAR === ###
-NOMBRE="AJCG13121981"
-EMAIL="ajcg.git.github@gmail.com"
-REPO_SSH="git@github.com:AJCG13121981/gitconfig.git"
-#######################################
+echo "🚀 INICIANDO CONFIGURACIÓN AUTOMÁTICA DE GIT + GITHUB"
+echo "-----------------------------------------------------"
 
-echo "🔧 Actualizando el sistema..."
+# === PREGUNTAR DATOS AL USUARIO ===
+read -p "📝 Introduce tu nombre (Git user.name): " NOMBRE
+read -p "📧 Introduce tu email (Git user.email): " EMAIL
+read -p "🔗 Introduce la URL SSH de tu repositorio GitHub (ej: git@github.com:usuario/repo.git): " REPO_SSH
+
+# === ACTUALIZAR EL SISTEMA ===
+echo ""
+echo "🔧 Actualizando sistema..."
 sudo apt update && sudo apt upgrade -y
 
+# === INSTALAR GIT ===
+echo ""
 echo "🔧 Instalando Git..."
 sudo apt install git -y
 
-echo "⚙️ Configurando usuario global de Git..."
+# === CONFIGURAR GIT ===
+echo ""
+echo "⚙️ Configurando Git con tu nombre y correo..."
 git config --global user.name "$NOMBRE"
 git config --global user.email "$EMAIL"
 
-# Comprobar si la clave SSH ya existe
+# === GENERAR CLAVE SSH SI NO EXISTE ===
 if [ -f "$HOME/.ssh/id_ed25519.pub" ]; then
-    echo "✅ Clave SSH ya existe. No se genera nueva."
+    echo ""
+    echo "✅ Clave SSH ya existe. Usando la existente."
 else
+    echo ""
     echo "🔐 Generando nueva clave SSH..."
     ssh-keygen -t ed25519 -C "$EMAIL" -f "$HOME/.ssh/id_ed25519" -N ""
 fi
 
-# Mostrar clave pública para que el usuario la copie
+# === MOSTRAR CLAVE PÚBLICA PARA COPIAR ===
 echo ""
-echo "📋 Copia esta clave y pégala en GitHub:"
+echo "📋 Copia esta clave y añádela a tu GitHub aquí:"
+echo "👉 https://github.com/settings/keys"
+echo ""
 cat ~/.ssh/id_ed25519.pub
 echo ""
-echo "🌐 Añádela aquí: https://github.com/settings/keys"
-read -p "⏳ Pulsa [ENTER] cuando hayas pegado la clave..."
+read -p "⏳ Pulsa [ENTER] cuando hayas pegado la clave en GitHub..."
 
-# Probar conexión SSH con GitHub
+# === TEST CONEXIÓN SSH A GITHUB ===
+echo ""
+echo "🔗 Verificando conexión con GitHub vía SSH..."
 ssh -T git@github.com
 
-# Preguntar si se desea clonar o iniciar repo
+# === ELEGIR ENTRE CLONAR O CREAR REPO ===
 echo ""
-read -p "¿Quieres clonar el repo $REPO_SSH (c) o crear uno nuevo local (n)? [c/n]: " OPCION
+read -p "¿Quieres clonar el repositorio ($REPO_SSH) (c) o crear uno nuevo local (n)? [c/n]: " OPCION
 
 if [[ "$OPCION" == "c" ]]; then
     git clone "$REPO_SSH"
-    echo "📥 Repositorio clonado."
+    echo "📥 Repositorio clonado correctamente."
 else
     mkdir mi_proyecto && cd mi_proyecto
     git init
@@ -51,5 +64,8 @@ else
     git remote add origin "$REPO_SSH"
     git branch -M main
     git push -u origin main
-    echo "🚀 Repo local creado y sincronizado con GitHub."
+    echo "🚀 Repositorio local creado y subido a GitHub."
 fi
+
+echo ""
+echo "✅ Configuración completa. Git y GitHub están listos para usarse."
