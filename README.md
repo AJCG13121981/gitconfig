@@ -1,41 +1,56 @@
-# 🛠️ Instalador DEV — FASE 1
+# 🛠️ Instalador DEV — FASE 1 + FASE 2
 
-Este repositorio instala automáticamente herramientas clave de desarrollo para cualquier sistema Linux limpio (por ejemplo, una nueva máquina virtual con Ubuntu Desktop).
+Este repositorio automatiza la configuración de un entorno de desarrollo completo en una máquina Linux limpia (por ejemplo, una VM con Ubuntu Desktop).
 
 ---
 
-## 🚀 ¿Cómo usarlo? (2 pasos)
+## 🚀 ¿Cómo usarlo? (2 fases)
 
-### 1️⃣ Instala `curl` (si no lo tienes)
+---
+
+### 🔧 FASE 1 — Preparar el entorno
+
+1️⃣ Instala `curl` (si aún no lo tienes):
 
 ```bash
 sudo apt install curl -y
 ```
 
-### 2️⃣ Lanza el instalador FASE 1
+2️⃣ Ejecuta el instalador principal:
 
 ```bash
 curl -s https://raw.githubusercontent.com/AJCG13121981/gitconfig/main/fase1_setup.sh | bash
 ```
 
----
-
-## ✅ ¿Qué instala este script?
-
-- 🔧 Sistema actualizado (`apt update && upgrade`)
-- 🧰 Herramientas esenciales de desarrollo:
-  - `git` – Control de versiones
-  - `nodejs` + `npm` – Desarrollo JS/Node
-  - `python3` + `python3-pip` – Desarrollo en Python
-  - `default-jdk` – Entorno de desarrollo Java
-  - `build-essential` – Compiladores y librerías base
-  - `curl` y `wget` – Descarga de archivos
-  - `zip` y `unzip` – Gestión de archivos comprimidos
-  - `htop` – Monitor del sistema avanzado
-  - `gnupg` – Firmado y cifrado de claves
-  - `software-properties-common` y `ca-certificates` – Repositorios y seguridad
+📢 Al finalizar, se te pedirá que reinicies el sistema.  
+🔁 Hazlo antes de continuar con la FASE 2.
 
 ---
 
-📢 Al finalizar se mostrará un mensaje recordándote que debes reiniciar el sistema.  
-🧩 Después podrás continuar con la FASE 2 (configuración de Git y conexión con GitHub).
+### 🔐 FASE 2 — Configurar Git y enlazar con GitHub
+
+1️⃣ Después de reiniciar, entra en la carpeta del proyecto:
+
+```bash
+cd ~/gitconfig
+```
+
+2️⃣ Da permisos y ejecuta el script:
+
+```bash
+chmod +x configura_git.sh
+./configura_git.sh
+```
+
+📌 Este script:
+
+- Configura tu nombre y correo de Git
+- Genera tu clave SSH (si no existe)
+- Muestra la clave pública para que la pegues en GitHub  
+  🔗 [https://github.com/settings/keys](https://github.com/settings/keys)
+- Verifica la conexión SSH con GitHub
+- Crea un proyecto local con README y realiza el primer commit
+
+---
+
+✅ Una vez completadas las dos fases, tu entorno estará listo para trabajar y enlazado con tu cuenta de GitHub.
