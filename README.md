@@ -4,13 +4,13 @@ Este repositorio contiene un instalador guiado que configura Git, genera clave S
 
 ---
 
-## 🟢 USO RÁPIDO: SOLO COPIA Y PEGA
+## 🟢 USO RÁPIDO: SOLO COPIA Y PEGA ESTE COMANDO
 
 ```bash
 curl -s https://raw.githubusercontent.com/AJCG13121981/gitconfig/main/instalador_git.sh | bash
 ```
 
-⚠️ Ejecuta este único comando desde cualquier equipo Linux (Ubuntu/Debian) y sigue las instrucciones.
+⚠️ Ejecuta este único comando desde cualquier equipo Linux (Ubuntu/Debian) y sigue las instrucciones en pantalla.
 
 ---
 

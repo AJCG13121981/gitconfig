@@ -18,6 +18,7 @@ else
     read -p "⏳ Pulsa [ENTER] cuando hayas añadido la clave en GitHub..."
 fi
 
+echo ""
 echo "🔗 Verificando conexión SSH con GitHub..."
 ssh -T git@github.com
 
