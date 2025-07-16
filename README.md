@@ -4,7 +4,29 @@ Este repositorio instala automáticamente herramientas clave de desarrollo para 
 
 ---
 
-## 🚀 ¿Cómo usarlo? (2 pasos)
+## 🧭 PASO PREVIO — Configurar idioma y hora en Ubuntu
+
+### 🌐 Cambiar idioma a español
+
+```bash
+sudo apt update
+sudo apt install language-pack-es -y
+sudo update-locale LANG=es_ES.UTF-8
+reboot
+```
+
+### ⏰ Cambiar zona horaria (hora de España)
+
+Tras reiniciar, abre de nuevo la terminal y ejecuta:
+
+```bash
+sudo timedatectl set-timezone Europe/Madrid
+timedatectl
+```
+
+---
+
+## 🚀 ¿Cómo usar el instalador? (2 pasos)
 
 ### 1️⃣ Instala `curl` (si no lo tienes)
 
