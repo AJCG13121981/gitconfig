@@ -1,43 +1,35 @@
 #!/bin/bash
 
-echo "🔧 FASE 2 - Generación y configuración de clave SSH"
-echo "---------------------------------------------------"
-sleep 1
+clear
+echo "🔐 Generando clave SSH para conectar con GitHub..."
+echo "----------------------------------------------------"
 
-# Generar clave SSH si no existe
-if [ ! -f ~/.ssh/id_rsa.pub ]; then
-    echo ""
-    echo "🚧 No se encontró una clave SSH."
-    echo "🔐 Generando nueva clave SSH..."
-    read -p "Introduce tu correo para la clave SSH: " EMAIL
-    ssh-keygen -t rsa -b 4096 -C "$EMAIL" -f ~/.ssh/id_rsa -N ""
-    echo "✅ Clave SSH generada correctamente."
+# Solicitar correo del usuario para identificar la clave
+read -p "Introduce tu correo (GitHub email): " EMAIL
+
+# Comprobar si ya existe una clave SSH
+if [[ -f ~/.ssh/id_ed25519 ]]; then
+    echo "✅ Ya existe una clave SSH en ~/.ssh/id_ed25519"
 else
-    echo ""
-    echo "✅ Clave SSH ya existe."
+    # Generar nueva clave SSH sin passphrase
+    ssh-keygen -t ed25519 -C "$EMAIL" -f ~/.ssh/id_ed25519 -N ""
+    echo "✅ Clave SSH generada con éxito."
 fi
 
-# Mostrar clave pública
-echo ""
-echo "📋 Esta es tu clave pública. Cópiala y pégala en GitHub:"
-cat ~/.ssh/id_rsa.pub
-echo ""
-echo "🔗 Accede a GitHub en: https://github.com/settings/keys y pulsa en 'New SSH Key'"
-echo "📌 Pega la clave y guárdala."
+# Mostrar la clave pública
+echo -e "\n📋 Copia la siguiente clave y pégala en GitHub:"
+echo "(https://github.com/settings/keys)"
+echo "----------------------------------------------------"
+cat ~/.ssh/id_ed25519.pub
 
-read -p "⏳ Pulsa ENTER cuando hayas pegado la clave en GitHub..."
+echo -e "\n🕐 Cuando hayas añadido la clave pública en GitHub, pulsa ENTER para continuar."
+read
 
 # Verificar conexión SSH con GitHub
-echo ""
-echo "🔗 Probando conexión con GitHub..."
+clear
+echo "🔗 Verificando conexión SSH con GitHub..."
+echo "----------------------------------------------------"
 ssh -T git@github.com
 
-if [ $? -eq 1 ]; then
-    echo "✅ Conexión SSH con GitHub establecida correctamente."
-else
-    echo "❌ Error al conectar con GitHub. Asegúrate de haber pegado la clave correctamente."
-    exit 1
-fi
-
-echo ""
-echo "✅ FASE 2 (Parte 1) completada. Ahora puedes continuar con la siguiente fase."
+echo -e "\n✅ Si has visto un mensaje de bienvenida, la conexión es correcta."
+echo "❗️ Si hubo algún error, asegúrate de que has pegado la clave correctamente en GitHub."
