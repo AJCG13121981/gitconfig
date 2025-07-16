@@ -1,41 +1,26 @@
 #!/bin/bash
 
-echo "🔧 FASE 1: INSTALACIÓN DE HERRAMIENTAS BÁSICAS"
-echo "---------------------------------------------"
-sleep 1
+echo "🛠️ Ejecutando fase 1: actualización del sistema y herramientas DEV..."
 
-# Verificar si curl está disponible
-if ! command -v curl >/dev/null 2>&1; then
-    echo ""
-    echo "⚠️  curl no está instalado."
-    echo "👉 Ejecuta:"
-    echo "   sudo apt install curl -y"
-    echo ""
-    echo "🔁 Luego vuelve a lanzar este script:"
-    echo "   ./fase1_setup.sh"
-    exit 1
-fi
+sudo apt update && sudo apt upgrade -y
 
-# Actualizar sistema
-echo ""
-echo "📦 Actualizando paquetes..."
-sudo apt update -y
-sudo apt upgrade -y
-
-# Instalar herramientas básicas
-echo ""
-echo "📦 Instalando Git..."
-sudo apt install git -y
+sudo apt install -y \
+  curl \
+  wget \
+  git \
+  nodejs \
+  npm \
+  python3 \
+  python3-pip \
+  default-jdk \
+  build-essential \
+  zip unzip \
+  htop \
+  gnupg \
+  software-properties-common \
+  ca-certificates
 
 echo ""
-echo "📦 Instalando Node.js..."
-sudo apt install nodejs -y
+echo "✅ Instalación completada."
 
-echo ""
-echo "📦 Instalando npm..."
-sudo apt install npm -y
-
-# Final
-echo ""
-echo "✅ Instalación finalizada."
-echo "🔁 Reinicia ahora el sistema antes de continuar con futuras fases."
+echo "📢 🔁 REINICIA ahora el sistema para continuar con la FASE 2"
