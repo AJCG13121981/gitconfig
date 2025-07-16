@@ -20,13 +20,20 @@ curl -s https://raw.githubusercontent.com/AJCG13121981/gitconfig/main/fase1_setu
 
 ---
 
-## ✅ ¿Qué hace este script?
+## ✅ ¿Qué instala este script?
 
-- Actualiza tu sistema (`apt update && upgrade`)
-- Instala herramientas esenciales:
-  - `git`
-  - `nodejs`
-  - `npm`
+- 🔧 Sistema actualizado (`apt update && upgrade`)
+- 🧰 Herramientas esenciales de desarrollo:
+  - `git` – Control de versiones
+  - `nodejs` + `npm` – Desarrollo JS/Node
+  - `python3` + `python3-pip` – Desarrollo en Python
+  - `default-jdk` – Entorno de desarrollo Java
+  - `build-essential` – Compiladores y librerías base
+  - `curl` y `wget` – Descarga de archivos
+  - `zip` y `unzip` – Gestión de archivos comprimidos
+  - `htop` – Monitor del sistema avanzado
+  - `gnupg` – Firmado y cifrado de claves
+  - `software-properties-common` y `ca-certificates` – Repositorios y seguridad
 
 ---
 
