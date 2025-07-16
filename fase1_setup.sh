@@ -1,38 +1,33 @@
 #!/bin/bash
 
-echo "🔧 FASE 1: PREPARACIÓN DEL ENTORNO DEV"
-echo "--------------------------------------"
+echo "📦 INSTALANDO HERRAMIENTAS BÁSICAS PARA DESARROLLO"
+echo "--------------------------------------------------"
 sleep 1
 
 echo ""
-echo "📦 Paso 1: Instalando curl..."
-echo "   👉 curl es necesario para descargar scripts remotos como este."
+echo "📦 Instalando curl (necesario para descargas remotas)..."
 sudo apt install curl -y
 
 echo ""
-echo "📦 Paso 2: Actualizando la lista de paquetes del sistema..."
+echo "📦 Actualizando lista de paquetes..."
 sudo apt update -y
 
 echo ""
-echo "📦 Paso 3: Actualizando los paquetes instalados..."
+echo "📦 Actualizando paquetes del sistema..."
 sudo apt upgrade -y
 
 echo ""
-echo "📦 Paso 4: Instalando Git..."
-echo "   👉 Git es el sistema de control de versiones más usado en desarrollo."
+echo "📦 Instalando Git..."
 sudo apt install git -y
 
 echo ""
-echo "📦 Paso 5: Instalando Node.js..."
-echo "   👉 Node.js permite ejecutar JavaScript en el servidor y es usado por muchas herramientas modernas."
+echo "📦 Instalando Node.js..."
 sudo apt install nodejs -y
 
 echo ""
-echo "📦 Paso 6: Instalando npm (gestor de paquetes para Node.js)..."
+echo "📦 Instalando npm (gestor de paquetes para Node)..."
 sudo apt install npm -y
 
-# Puedes añadir más herramientas base aquí si lo crees conveniente.
-
 echo ""
-echo "✅ Fase 1 completada correctamente."
-echo "🔁 Es MUY recomendable reiniciar ahora el sistema para aplicar todos los cambios."
+echo "✅ Instalación completada."
+echo "🔁 Se recomienda reiniciar el sistema ahora."
