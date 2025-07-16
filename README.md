@@ -71,3 +71,37 @@ chmod +x fase2_configura_git.sh
 
 ✅ ¡Entorno DEV conectado y listo!  
 📌 Próxima fase: flujo completo GitHub → trabajo → push/pull automático.
+
+## 🚀 FASE 3 — Flujo de trabajo Git completo
+
+1️⃣ Asegúrate de haber completado la FASE 2 (clave SSH + clonación).
+
+2️⃣ Accede al directorio clonado:
+
+```bash
+cd ~/gitconfig
+```
+
+3️⃣ Otorga permisos de ejecución al script:
+
+```bash
+chmod +x fase3_git_flow.sh
+```
+
+4️⃣ Ejecuta el script:
+
+```bash
+./fase3_git_flow.sh
+```
+
+---
+
+📌 El script:
+
+- Verifica si ya tienes remoto (`origin`) configurado.
+- Si no, te pedirá la URL SSH del repositorio (ejemplo: `git@github.com:tunombre/tu-repo.git`).
+- Te ofrece añadir alias útiles (`git st`, `git cm`, etc.).
+- Crea `.gitignore` básico si no existe.
+- Hace commit y push si lo deseas.
+
+🧠 *Consejo:* Puedes comprobar que todo fue bien visitando tu repositorio en GitHub tras el push.
